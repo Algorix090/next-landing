@@ -13,8 +13,8 @@ export async function sendContactEmail(formData: FormData) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_USER, // your Gmail address
-      pass: process.env.GMAIL_PASS, // your Gmail App Password
+      user: "algorix315@gmail.com", // your Gmail address
+      pass: "vip19931103", // your Gmail App Password
     },
   })
 
@@ -23,7 +23,7 @@ export async function sendContactEmail(formData: FormData) {
   // Email content
   const mailOptions = {
     from: `"${name}" <${email}>`,
-    to: process.env.GMAIL_USER, // your receiving email address
+    to: "algorix315@gmail.com", // your receiving email address
     subject: `[お問い合わせ] ${subject}`,
     text: `
 お名前: ${name}

@@ -18,6 +18,8 @@ export async function sendContactEmail(formData: FormData) {
     },
   })
 
+  console.log(process.env.GMAIL_USER, "user", process.env.GMAIL_PASS, "pass")
+
   // Email content
   const mailOptions = {
     from: `"${name}" <${email}>`,

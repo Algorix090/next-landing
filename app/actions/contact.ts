@@ -40,6 +40,6 @@ ${message}
     return { success: true, message: "メッセージが正常に送信されました。" }
   } catch (error) {
     console.error("Error sending email:", error)
-    return { success: false, message: "メール送信中にエラーが発生しました。1" }
+    return { success: false, message: "メール送信中にエラーが発生しました。1" + error }
   }
 }

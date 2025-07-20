@@ -8,7 +8,7 @@ export default function Experience() {
       company: "Intellectsoft Australia",
       position: "シニアソフトウェアエンジニア",
       location: "オーストラリア",
-      period: "2020年1月 〜 2020年8月",
+      period: "2020年1月 〜 2025年6月",
       description:
         "シドニー拠点のIntellectsoft支社で、エンタープライズ向けWeb・モバイルアプリの設計・実装に従事。クライアントは大手保険・金融機関が中心。安全性・スケーラビリティ・ドメイン特化型API設計に注力。",
       technologies: ["エンタープライズ開発", "API設計", "アジャイル開発", "チーム育成", "コードレビュー"],

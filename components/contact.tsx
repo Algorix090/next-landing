@@ -11,13 +11,22 @@ import { sendContactEmail } from "@/app/actions/contact"
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [responseMessage, setResponseMessage] = useState<string | null>(null)
+  const [isSuccess, setIsSuccess] = useState<boolean | null>(null)
 
   const handleSubmit = async (formData: FormData) => {
     setIsSubmitting(true)
+    setResponseMessage(null)
+    setIsSuccess(null)
     try {
-      await sendContactEmail(formData)
+      const result = await sendContactEmail(formData)
+      setIsSuccess(result.success)
+      setResponseMessage(result.message)
       setIsSubmitted(true)
     } catch (error) {
+      setIsSuccess(false)
+      setResponseMessage("メール送信中にエラーが発生しました。")
+      setIsSubmitted(true)
       console.error("Error sending email:", error)
     } finally {
       setIsSubmitting(false)
@@ -31,12 +40,16 @@ export default function Contact() {
           <div className="max-w-2xl mx-auto text-center">
             <Card className="p-8">
               <CardContent className="p-0">
-                <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">お問い合わせありがとうございます</h3>
+                {isSuccess ? (
+                  <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-6" />
+                ) : (
+                  <div className="h-16 w-16 mx-auto mb-6 text-red-600 flex items-center justify-center text-5xl">×</div>
+                )}
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {isSuccess ? "お問い合わせありがとうございます" : "送信エラー"}
+                </h3>
                 <p className="text-gray-600 mb-6">
-                  メッセージを受信いたしました。
-                  <br />
-                  24時間以内にご返信させていただきます。
+                  {responseMessage}
                 </p>
                 <Button onClick={() => setIsSubmitted(false)} variant="outline">
                   新しいメッセージを送信

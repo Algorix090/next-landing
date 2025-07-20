@@ -1,30 +1,43 @@
 "use server"
 
-export async function sendContactEmail(formData: FormData) {
-  // Simulate email sending delay
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+import nodemailer from "nodemailer"
 
+export async function sendContactEmail(formData: FormData) {
   const name = formData.get("name") as string
   const company = formData.get("company") as string
   const email = formData.get("email") as string
   const subject = formData.get("subject") as string
   const message = formData.get("message") as string
 
-  // In a real application, you would integrate with an email service like:
-  // - SendGrid
-  // - AWS SES
-  // - Nodemailer
-  // - Resend
-
-  console.log("Contact form submission:", {
-    name,
-    company,
-    email,
-    subject,
-    message,
-    timestamp: new Date().toISOString(),
+  // Set up transporter using Gmail SMTP
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER, // your Gmail address
+      pass: process.env.GMAIL_PASS, // your Gmail App Password
+    },
   })
 
-  // Simulate successful email sending
-  return { success: true, message: "メッセージが正常に送信されました。" }
+  // Email content
+  const mailOptions = {
+    from: `"${name}" <${email}>`,
+    to: process.env.GMAIL_USER, // your receiving email address
+    subject: `[お問い合わせ] ${subject}`,
+    text: `
+お名前: ${name}
+会社名: ${company}
+メールアドレス: ${email}
+件名: ${subject}
+メッセージ:
+${message}
+    `,
+  }
+
+  try {
+    await transporter.sendMail(mailOptions)
+    return { success: true, message: "メッセージが正常に送信されました。" }
+  } catch (error) {
+    console.error("Error sending email:", error)
+    return { success: false, message: "メール送信中にエラーが発生しました。" }
+  }
 }

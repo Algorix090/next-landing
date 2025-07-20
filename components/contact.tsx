@@ -66,23 +66,19 @@ export default function Contact() {
                 <Mail className="h-6 w-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">メールアドレス</h4>
-                  <p className="text-gray-600">hotaka.ide@example.com</p>
+                  <p className="text-gray-600">algorix315@gmail.com</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <Phone className="h-6 w-6 text-blue-600 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">電話番号</h4>
-                  <p className="text-gray-600">090-1234-5678</p>
-                </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <MapPin className="h-6 w-6 text-blue-600 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">所在地</h4>
-                  <p className="text-gray-600">東京都内（リモートワーク対応可能）</p>
+                  <p className="text-gray-600">長野市内（リモートワーク対応可能）</p>
                 </div>
               </div>
             </div>

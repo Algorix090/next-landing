@@ -5,15 +5,6 @@ import { MapPin, Calendar } from "lucide-react"
 export default function Experience() {
   const experiences = [
     {
-      company: "Sea Ltd（旧Garena）",
-      position: "リードソフトウェアエンジニア",
-      location: "シンガポール",
-      period: "2017年4月 〜 2020年8月",
-      description:
-        "東南アジアを代表するテック大手Seaの中核子会社にて、フルスタックエンジニアとして従事。e‑コマース（Shopee）・ゲーム（Garena）・デジタル決済（SeaMoney）各領域にまたがるプロダクトの設計・開発を横断的に担当。",
-      technologies: ["AWS", "Kubernetes", "マイクロサービス", "CI/CD", "グローバルスケーラビリティ"],
-    },
-    {
       company: "Intellectsoft Australia",
       position: "シニアソフトウェアエンジニア",
       location: "オーストラリア",
@@ -22,6 +13,17 @@ export default function Experience() {
         "シドニー拠点のIntellectsoft支社で、エンタープライズ向けWeb・モバイルアプリの設計・実装に従事。クライアントは大手保険・金融機関が中心。安全性・スケーラビリティ・ドメイン特化型API設計に注力。",
       technologies: ["エンタープライズ開発", "API設計", "アジャイル開発", "チーム育成", "コードレビュー"],
     },
+
+    {
+      company: "Sea Ltd（旧Garena）",
+      position: "リードソフトウェアエンジニア",
+      location: "シンガポール",
+      period: "2017年4月 〜 2020年1月",
+      description:
+        "東南アジアを代表するテック大手Seaの中核子会社にて、フルスタックエンジニアとして従事。e‑コマース（Shopee）・ゲーム（Garena）・デジタル決済（SeaMoney）各領域にまたがるプロダクトの設計・開発を横断的に担当。",
+      technologies: ["AWS", "Kubernetes", "マイクロサービス", "CI/CD", "グローバルスケーラビリティ"],
+    },
+   
   ]
 
   return (

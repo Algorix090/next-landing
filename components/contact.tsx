@@ -20,13 +20,14 @@ export default function Contact() {
     setIsSuccess(null)
     try {
       const result = await sendContactEmail(formData)
-      setIsSuccess(result.success)
-      setResponseMessage(result.message)
-      setIsSubmitted(true)
+      console.log("Email sent successfully:", result)
+      // setIsSuccess(result.success)
+      // setResponseMessage(result.message)
+      // setIsSubmitted(true)
     } catch (error) {
       setIsSuccess(false)
-      setResponseMessage("メール送信中にエラーが発生しました。")
-      setIsSubmitted(true)
+      setResponseMessage("メール送信中にエラーが発生しました。2")
+      // setIsSubmitted(true)
       console.error("Error sending email:", error)
     } finally {
       setIsSubmitting(false)
